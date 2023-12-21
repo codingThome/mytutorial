@@ -1,0 +1,1588 @@
+
+<!doctype html>
+<html lang="de" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Das learn2proGrAME Tutorial zur Spieleprogrammierung mit C# in Unity">
+      
+      
+        <meta name="author" content="learn2proGrAME">
+      
+      
+      
+        <link rel="prev" href="../T04-variables/">
+      
+      
+        <link rel="next" href="../T06-donutclicker/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.2">
+    
+    
+      
+        <title>Operatoren - learn2proGrAME Tutorial</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.50c56a3b.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#operatoren" class="md-skip">
+          Zum Inhalt
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Kopfzeile">
+    <a href="../.." title="learn2proGrAME Tutorial" class="md-header__button md-logo" aria-label="learn2proGrAME Tutorial" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            learn2proGrAME Tutorial
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Operatoren
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Suche" placeholder="Suche" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Suche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Zurücksetzen" aria-label="Zurücksetzen" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Suche wird initialisiert
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="learn2proGrAME Tutorial" class="md-nav__button md-logo" aria-label="learn2proGrAME Tutorial" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    learn2proGrAME Tutorial
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Einleitung
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Grundlagen
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Grundlagen
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../T01-userinterface/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bedienoberflächen
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../T02-firststeps/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Erste Schritte
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../T03-debugging/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fehler und De-Bugging
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../T04-variables/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Variablen
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Operatoren
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Operatoren
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#wozu-operatoren" class="md-nav__link">
+    <span class="md-ellipsis">
+      Wozu Operatoren?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arithmetische-operatoren" class="md-nav__link">
+    <span class="md-ellipsis">
+      Arithmetische Operatoren
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Arithmetische Operatoren">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#operator" class="md-nav__link">
+    <span class="md-ellipsis">
+      = Operator
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operator_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      + Operator
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-operator" class="md-nav__link">
+    <span class="md-ellipsis">
+      - Operator
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operator_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      * Operator
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operator_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      / Operator
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operator_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      % Operator
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#logische-operatoren" class="md-nav__link">
+    <span class="md-ellipsis">
+      Logische Operatoren
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Logische Operatoren">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#operator-und" class="md-nav__link">
+    <span class="md-ellipsis">
+      &amp;&amp; Operator (UND)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operator-oder" class="md-nav__link">
+    <span class="md-ellipsis">
+      || Operator (ODER)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operator-nicht" class="md-nav__link">
+    <span class="md-ellipsis">
+      ! Operator (NICHT)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operator-gleich" class="md-nav__link">
+    <span class="md-ellipsis">
+      == Operator (GLEICH)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#int-a-2-a-2-dieser-ausdruck-ergibt-true-10-10-auch-das-ergibt-true-a-5-das-ergibt-false-weil-der-wert-in-a-2-nicht-gleich-5-ist" class="md-nav__link">
+    <span class="md-ellipsis">
+      int a = 2
+(a == 2)    // Dieser Ausdruck ergibt true.
+(10 == 10)  // Auch das ergibt true.
+(a == 5)    // Das ergibt false, weil der Wert in a (2) nicht gleich 5 ist.
+
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="int a = 2 (a == 2) // Dieser Ausdruck ergibt true. (10 == 10) // Auch das ergibt true. (a == 5) // Das ergibt false, weil der Wert in a (2) nicht gleich 5 ist.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#operator-nicht-gleich" class="md-nav__link">
+    <span class="md-ellipsis">
+      != Operator (NICHT GLEICH)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../T06-donutclicker/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Spiel - Krapfenklicker
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../T07-transform/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transform Spielobjektkomponente
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../T08-conditionals/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Verzweigungen
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../T09-adventure/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Spiel - Ellis großes Abenteuer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../T10-drawingingimp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Grafiken gestalten in GIMP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../T11-functions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Funktionen
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../T12-accessmodifiers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Zugriffskontrolle
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../T13-loops/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Schleifen
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../T14-gameloop/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Die Spiel-Schleife
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../T15-classes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Objekt-orientiertes Programmieren - Grundlagen
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Spiel - BouncyFant
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Spiel - BouncyFant
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bouncyfant/T00-introduction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Einführung
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bouncyfant/T01-adassets/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Teil 1 - Neues Projekt und Assets
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bouncyfant/T02-animstat/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Teil 2 - Animationen und States
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bouncyfant/T03-movement/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Teil 3 - Bewegung
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bouncyfant/T04-levels/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Teil 4 - Levels, Collider
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bouncyfant/T05-secondchar/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Teil 5 - Zweite Spielfigur
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bouncyfant/T06-jump/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Teil 6 - Jump Around
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bouncyfant/T07-physics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Teil 7 - Physikwelt
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bouncyfant/T08-win/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Teil 8 - Gewinnbedingung
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bouncyfant/T09-finetuning/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Teil 9 - Finetuning
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bouncyfant/T10-deploy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Teil 10 - Das Spiel Veröffentlichen
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#wozu-operatoren" class="md-nav__link">
+    <span class="md-ellipsis">
+      Wozu Operatoren?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arithmetische-operatoren" class="md-nav__link">
+    <span class="md-ellipsis">
+      Arithmetische Operatoren
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Arithmetische Operatoren">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#operator" class="md-nav__link">
+    <span class="md-ellipsis">
+      = Operator
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operator_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      + Operator
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-operator" class="md-nav__link">
+    <span class="md-ellipsis">
+      - Operator
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operator_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      * Operator
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operator_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      / Operator
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operator_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      % Operator
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#logische-operatoren" class="md-nav__link">
+    <span class="md-ellipsis">
+      Logische Operatoren
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Logische Operatoren">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#operator-und" class="md-nav__link">
+    <span class="md-ellipsis">
+      &amp;&amp; Operator (UND)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operator-oder" class="md-nav__link">
+    <span class="md-ellipsis">
+      || Operator (ODER)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operator-nicht" class="md-nav__link">
+    <span class="md-ellipsis">
+      ! Operator (NICHT)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operator-gleich" class="md-nav__link">
+    <span class="md-ellipsis">
+      == Operator (GLEICH)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#int-a-2-a-2-dieser-ausdruck-ergibt-true-10-10-auch-das-ergibt-true-a-5-das-ergibt-false-weil-der-wert-in-a-2-nicht-gleich-5-ist" class="md-nav__link">
+    <span class="md-ellipsis">
+      int a = 2
+(a == 2)    // Dieser Ausdruck ergibt true.
+(10 == 10)  // Auch das ergibt true.
+(a == 5)    // Das ergibt false, weil der Wert in a (2) nicht gleich 5 ist.
+
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="int a = 2 (a == 2) // Dieser Ausdruck ergibt true. (10 == 10) // Auch das ergibt true. (a == 5) // Das ergibt false, weil der Wert in a (2) nicht gleich 5 ist.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#operator-nicht-gleich" class="md-nav__link">
+    <span class="md-ellipsis">
+      != Operator (NICHT GLEICH)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="operatoren">Operatoren<a class="headerlink" href="#operatoren" title="Permanent link">&para;</a></h1>
+<div class="admonition abstract">
+<p class="admonition-title">Lernziele</p>
+<p>In diesem Kapitel lernst du, was ein Operator ist. Du lernst verschiedene Operatoren kennen und lernst wie du sie in einem Programm verwendest. Wenn du nicht mehr weißt was die Operatoren tun, kannst du in diesem Kapitel nachschauen.</p>
+</div>
+<p>Ein Operator ist eine Aktion, die man mit einer oder mehreren Variable(n) oder Objekt(en) durchführen kann.</p>
+<!--Das Ergebnis bestimmt die Art Operator.-->
+
+<!--Wir beschäftigen uns jetzt mit den wichtigsten Operatoren, die wir beim Spieleprogrammieren brauchen.-->
+
+<hr />
+<h2 id="wozu-operatoren">Wozu Operatoren?<a class="headerlink" href="#wozu-operatoren" title="Permanent link">&para;</a></h2>
+<p>Mit Operatoren kannst du deine Variablen verändern bzw. neu berechnen. Operatoren entsprechen immer einer Rechenmethode in der Mathematik.</p>
+<h2 id="arithmetische-operatoren">Arithmetische Operatoren<a class="headerlink" href="#arithmetische-operatoren" title="Permanent link">&para;</a></h2>
+<p>Arithmetische Operatoren erlauben uns einfache Berechnungen durchzuführen, fast so wie ein Taschenrechner!</p>
+<div class="admonition bug">
+<p class="admonition-title">ACHTUNG</p>
+<p>Arithmetische Operatoren rechnen in der Regel von Links nach Rechts. Es gilt Punkt vor Strich Rechnung!
+Du kannst Klammern verwenden, um die Reihenfolge der Berechnung anzugeben. Wie in Mathematik werden Begriffe in Klammern zuerst berechnet. <!--Es ist sehr wichtig Klammern zu setzen, damit nichts falsches berechnet wird.--></p>
+</div>
+<table>
+<thead>
+<tr>
+<th><strong>Operator</strong></th>
+<th><strong>Rechenmethode</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>+</td>
+<td>Addition</td>
+</tr>
+<tr>
+<td>-</td>
+<td>Subtraktion</td>
+</tr>
+<tr>
+<td>*</td>
+<td>Multiplikation</td>
+</tr>
+<tr>
+<td>/</td>
+<td>Division</td>
+</tr>
+<tr>
+<td>%</td>
+<td>Modulo (Rest d. Division)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="operator">= Operator<a class="headerlink" href="#operator" title="Permanent link">&para;</a></h3>
+<p><code>=</code> ist der <strong>Zuweisungsoperator</strong>. Du verwendest ihn, um ein Ergebnis einer Variable zuzuweisen, d.h. das Ergebnis speichern. Der Operator speichert was <strong>rechts</strong> vom <code>=</code> steht in die Variable links davon.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// = speichert den Wert 3 in der Variable x ab.</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3</span><span class="p">;</span>
+</code></pre></div>
+<!--!!!tip "Tipp"
+    Zum Initialisieren einer Variable verwendenn wir auch denZuweisungsoperatoren verwenden.-->
+
+<p>Den Zuweisungsoperator <code>=</code> verwendet man folgendermaßen:</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">//Wir erstellen eine Variable &quot;lieblingszahl&quot; mit dem Wert 1.</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">lieblingszahl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">;</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="c1">//Wir verwenden = und weisen lieblingszahl einen neuen Wert zu.</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">lieblingszahl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3</span><span class="p">;</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="c1">//Ab sofort steht in *lieblingszahl* die Zahl 3 anstatt 1.</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;Hallo, meine Lieblingszahl ist&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lieblingszahl</span><span class="p">);</span>
+</code></pre></div>
+In der Konsole steht nach Aufruf: <em>"Hallo, meine Lieblingszahl ist 3"</em>
+Wir sehen also, der Wert <code>lieblingszahl</code> und <code>name</code> sind jetzt anders, weil wir einen neuen Wert mit dem Operator <code>=</code> zugewiesen haben.</p>
+<hr />
+<h3 id="operator_1"><code>+</code> Operator<a class="headerlink" href="#operator_1" title="Permanent link">&para;</a></h3>
+<p>Der <strong>Additionsoperator</strong> <code>+</code> addiert Variablen. Du kannst damit die Summe von Variablen berechnen.</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">;</span><span class="w">      </span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">;</span><span class="w">      </span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">);</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="w"> </span><span class="p">(</span><span class="s">&quot; &quot;</span><span class="p">);</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="w"> </span><span class="p">(</span><span class="n">b</span><span class="o">+</span><span class="m">3</span><span class="p">);</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">;</span>
+</code></pre></div>
+In der Konsole steht nach Aufruf <em>"3 5"</em>.
+3 ist das Ergebnis von <em>"a+b"</em> was wir in c gespeichert haben und ausgeben.
+5 ist das Ergebnis von <em>"b+3"</em> denn in b ist 2 gespeichert.</p>
+<div class="admonition success">
+<p class="admonition-title">Arbeitsauftrag</p>
+<p>Verwende den Additionsparameter <code>+</code> um die Zahlen b und c zu addieren. Gib dein Ergebnis mit Debug.Log() aus. Je nachdem ob du deinen Code vor oder nach <code>c = a+b</code> einfügst ist das Ergebnis anders. Warum?</p>
+</div>
+<p>Du kannst den Additionsoperator <code>+</code> auch verwenden, um Strings zu kombinieren.</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">String</span><span class="w"> </span><span class="n">teil1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Wasch&quot;</span><span class="p">;</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">String</span><span class="w"> </span><span class="n">teil2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;maschine&quot;</span><span class="p">;</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="w"> </span><span class="p">(</span><span class="n">teil1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">teil2</span><span class="p">);</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="w"> </span><span class="p">(</span><span class="s">&quot; Bohr&quot;</span><span class="w"> </span><span class="o">+</span><span class="n">teil2</span><span class="p">);</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;Süßes&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; oder &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;Saures&quot;</span><span class="p">);</span>
+</code></pre></div>
+In der Konsole steht jetzt: <em>Waschmaschine Bohrmaschine Süßes oder Saures</em></p>
+<div class="admonition success">
+<p class="admonition-title">Arbeitsauftrag</p>
+<p>Verwende den Additionsparameter <code>+</code> um einzelne Wörter (<code>Strings</code>) zu einem Satz zu verbinden. Gib dein Ergebnis mit Debug.Log() aus.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tipp</p>
+<p>Wenn du Strings kombinierst, um einen Satz zu erstellen, musst du Leerzeichen anfügen. Sonst kleben die Wörter zusammen.</p>
+</div>
+<hr />
+<h3 id="-operator"><code>-</code> Operator<a class="headerlink" href="#-operator" title="Permanent link">&para;</a></h3>
+<p>Den <strong>Subtraktionsoperator</strong> <code>-</code> verwendet man um 2 Variablen zu subtrahieren. Die Rechte Zahl wird von der Linken abgezogen.</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3</span><span class="p">;</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">2</span><span class="p">;</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
+</code></pre></div>
+In der Konsole steht nach dem Ausführen <em>1</em>.</p>
+<hr />
+<h3 id="operator_2"><code>*</code> Operator<a class="headerlink" href="#operator_2" title="Permanent link">&para;</a></h3>
+<p>Den <strong>Multiplikationsoperator</strong> <code>*</code> verwendet man um 2 Variablen zu multiplizieren. Vergiss nicht Klammern zu verwenden damit du auch wirklich das berechnest was du vor hast.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3</span><span class="p">;</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="o">*</span><span class="m">5</span><span class="p">;</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="n">b</span><span class="p">);</span>
+</code></pre></div>
+<p>In der Konsole steht nach dem Ausführen <em>15</em>.  </p>
+<ul>
+<li>Ohne Klammern:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3</span><span class="p">;</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="o">+</span><span class="m">2</span><span class="o">*</span><span class="m">5</span><span class="p">;</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="n">b</span><span class="p">);</span>
+</code></pre></div>
+In der Konsole steht nach dem Ausführen <em>13</em>.  </li>
+</ul>
+<hr />
+<h3 id="operator_3"><code>/</code> Operator<a class="headerlink" href="#operator_3" title="Permanent link">&para;</a></h3>
+<p>Den <strong>Divisionsoperator</strong> <code>/</code> verwendet man um 2 Variablen miteinander zu dividieren.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">15</span><span class="p">;</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="o">/</span><span class="m">3</span><span class="p">;</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="n">b</span><span class="p">);</span>
+</code></pre></div>
+In der Konsole steht nach dem Ausführen <em>5</em>.  </p>
+<div class="admonition bug">
+<p class="admonition-title">ACHTUNG</p>
+<p>Es gilt Punkt vor Strich Rechnung. Pass also auf, dass du die richtigen Klammern setzt.</p>
+</div>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">15</span><span class="p">;</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="o">/</span><span class="m">3</span><span class="o">+</span><span class="m">2</span><span class="p">;</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="n">b</span><span class="p">);</span>
+</code></pre></div>
+In der Konsole steht nach dem Ausführen <em>7</em>.</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">15</span><span class="p">;</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="o">/</span><span class="p">(</span><span class="m">3</span><span class="o">+</span><span class="m">2</span><span class="p">);</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="n">b</span><span class="p">);</span>
+</code></pre></div>
+In der Konsole steht nach dem Ausführen <em>3</em>.  </p>
+<hr />
+<h3 id="operator_4">% Operator<a class="headerlink" href="#operator_4" title="Permanent link">&para;</a></h3>
+<p>Der <strong>Modulo</strong> Operator <code>%</code> wird verwendet, um eine Division mit Rest durchzuführen. Das Ergebnis dieser Berechnung ist aber <strong>nur der Restbetrag</strong>.</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span><span class="p">;</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span><span class="o">%</span><span class="m">3</span><span class="p">;</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="n">b</span><span class="p">);</span>
+</code></pre></div>
+In der Konsole steht nach dem Ausführen <em>1</em>, denn 10 dividiert durch 3 ist 3 + 1 Rest. Der <strong>Modulo</strong> Operator <code>%</code> liefert nur den Rest zurück.</p>
+<hr />
+<h2 id="logische-operatoren">Logische Operatoren<a class="headerlink" href="#logische-operatoren" title="Permanent link">&para;</a></h2>
+<p>Die Auswertung von <strong>logischen Operatoren</strong>
+gibt an, ob ein logischer Ausdruck (auch genannt <code>boolean</code> nach George Boole)- oder eine Verknüpfung mehrerer  Wahr (true) oder Falsch (false) ist.  Mit diesen Operatoren kann man also Bedingungen schreiben. In einigen Programmiersprachen werden statt <code>true</code> und <code>false</code> auch die int-Zahlenwerte 1 und 0 akzeptiert.</p>
+<p>Logischen Operatoren sind besonders wichtig bei <a href="../T08-conditionals/">Verzweigungen</a>. Wie noch gezeigt wird, wird der Code innerhalb einer Verzweigung nur ausgeführt, wenn die Bedinung Wahr ergibt.</p>
+<table>
+<thead>
+<tr>
+<th>Vergleichsoperator</th>
+<th>Bedeutung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&gt;</td>
+<td>ist größer als</td>
+</tr>
+<tr>
+<td>&gt;</td>
+<td>ist kleiner als</td>
+</tr>
+<tr>
+<td>&gt;=</td>
+<td>ist größer gleich</td>
+</tr>
+<tr>
+<td>&lt;=</td>
+<td>ist kleiner gleich</td>
+</tr>
+</tbody>
+</table>
+<p>Neben den Vergleichsoperatoren in der oberen Tabelle die du bestimmt aus dem Mathematikunterricht kennst gibt es noch weitere Operatoren die wir beim Programmieren brauchen.</p>
+<table>
+<thead>
+<tr>
+<th>Vergleichsoperator</th>
+<th>Funktion</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&amp;&amp;</code></td>
+<td>UND</td>
+</tr>
+<tr>
+<td><code>||</code></td>
+<td>ODER</td>
+</tr>
+<tr>
+<td><code>!</code></td>
+<td>NICHT</td>
+</tr>
+<tr>
+<td><code>==</code></td>
+<td>GLEICH</td>
+</tr>
+<tr>
+<td><code>!=</code></td>
+<td>UNGLEICH</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Tipp</p>
+<p>Wenn es dir schwer fällt diese Operatoren zu verstehen, stell dir am besten immer die Frage:"Ist dieser Ausdruck wahr? Falls ja, ist das Ergebnis <code>true</code>. Falls nein, ist das Ergebnis <code>false</code>. Zum Beispiel bei dem Begriff <code>5 &lt; 10</code> fragst du dich: "Ist 5 kleiner als 10?" - "Ja." Das Ergebnis ist also <code>true</code>.</p>
+</div>
+<hr />
+<h3 id="operator-und"><code>&amp;&amp;</code> Operator (UND)<a class="headerlink" href="#operator-und" title="Permanent link">&para;</a></h3>
+<p>Der <code>&amp;&amp;</code> Operator wird verwendet um Aussagen zu verknüpfen. Damit der zusammengesetzte Begriff in der Klammer <code>true</code> ergibt müssen alle mit <code>&amp;&amp;</code> verknüpften Aussagen <code>true</code> sein.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">3</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">5</span><span class="p">)</span><span class="w">   </span><span class="c1">// Dieser Ausdruck ergibt true, weil beide Aussagen wahr sind.</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">5</span><span class="p">)</span><span class="w">   </span><span class="c1">// Dieser Ausdruck ergibt false, weil zumindest eine der beiden Aussagen falsch ist.</span>
+</code></pre></div></p>
+<hr />
+<h3 id="operator-oder"><code>||</code> Operator (ODER)<a class="headerlink" href="#operator-oder" title="Permanent link">&para;</a></h3>
+<p>Der <code>||</code> Operator wird verwendet um Aussagen zu verknüpfen. Damit der zusammengesetzte Begriff in der Klammer <code>true</code> ergibt muss mindestens eine Aussage <code>true</code> sein. Nur wenn keine einzige <code>true</code> Aussage ist, ist der gesamte Begriff <code>false</code>.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">3</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">5</span><span class="p">)</span><span class="w">   </span><span class="c1">// Dieser Ausdruck ergibt true, da zumindest eine Aussage wahr ist.</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">100</span><span class="p">)</span><span class="w">   </span><span class="c1">// Dieser Ausdruck ergibt false, weil ALLE Aussagen falsch ist.</span>
+</code></pre></div></p>
+<hr />
+<h3 id="operator-nicht"><code>!</code> Operator (NICHT)<a class="headerlink" href="#operator-nicht" title="Permanent link">&para;</a></h3>
+<p>Wenn du den <code>!</code> Operator vor einen Ausdruck schreibst, drehst du du das Ergebnis um wie am Gegenteil Tag.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">0</span><span class="p">)</span><span class="w">   </span><span class="c1">// Dieser Ausdruck ergibt false.</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="o">!</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">0</span><span class="p">)</span><span class="w">  </span><span class="c1">// Dieser Ausdruck ergibt true, weil der NOT Operator das Ergebnis umdreht.</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">100</span><span class="p">)</span><span class="w">   </span><span class="c1">// Dieser Ausdruck ergibt false, weil ALLE Aussagen falsch ist.</span>
+</code></pre></div></p>
+<hr />
+<h3 id="operator-gleich"><code>==</code> Operator (GLEICH)<a class="headerlink" href="#operator-gleich" title="Permanent link">&para;</a></h3>
+<p>Der <code>==</code> Operator prüft ob die Ausdrücke auf beiden Seiten identisch oder gleich sind. Er gibt <code>true</code> zurück wenn sie gleich sind und <code>false</code> wenn sie nicht gleich sind.</p>
+<h2 id="int-a-2-a-2-dieser-ausdruck-ergibt-true-10-10-auch-das-ergibt-true-a-5-das-ergibt-false-weil-der-wert-in-a-2-nicht-gleich-5-ist"><div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">2</span><span class="p">)</span><span class="w">    </span><span class="c1">// Dieser Ausdruck ergibt true.</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="p">(</span><span class="m">10</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">10</span><span class="p">)</span><span class="w">  </span><span class="c1">// Auch das ergibt true.</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">5</span><span class="p">)</span><span class="w">    </span><span class="c1">// Das ergibt false, weil der Wert in a (2) nicht gleich 5 ist.</span>
+</code></pre></div><a class="headerlink" href="#int-a-2-a-2-dieser-ausdruck-ergibt-true-10-10-auch-das-ergibt-true-a-5-das-ergibt-false-weil-der-wert-in-a-2-nicht-gleich-5-ist" title="Permanent link">&para;</a></h2>
+<h3 id="operator-nicht-gleich"><code>!=</code> Operator (NICHT GLEICH)<a class="headerlink" href="#operator-nicht-gleich" title="Permanent link">&para;</a></h3>
+<p>Der <code>!=</code> Operator prüft ob die Ausdrücke auf beiden Seiten nicht gleich sind. Er gibt <code>false</code> zurück wenn sie gleich sind und <code>true</code> wenn sie nicht gleich sind.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="m">2</span><span class="p">)</span><span class="w">    </span><span class="c1">// Dieser Ausdruck ergibt false.</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="p">(</span><span class="m">10</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="m">10</span><span class="p">)</span><span class="w">  </span><span class="c1">// Auch false.</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="m">5</span><span class="p">)</span><span class="w">    </span><span class="c1">// Das ergibt true, weil der Wert in a (2) nicht gleich 5 ist.</span>
+</code></pre></div></p>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2019 learn2proGrAME forked by ento
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/sundowndev/PhoneInfoga" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "In Zwischenablage kopiert", "clipboard.copy": "In Zwischenablage kopieren", "search.result.more.one": "1 weiteres Suchergebnis auf dieser Seite", "search.result.more.other": "# weitere Suchergebnisse auf dieser Seite", "search.result.none": "Keine Suchergebnisse", "search.result.one": "1 Suchergebnis", "search.result.other": "# Suchergebnisse", "search.result.placeholder": "Suchbegriff eingeben", "search.result.term.missing": "Es fehlt", "select.version": "Version ausw\u00e4hlen"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7c377c4.min.js"></script>
+      
+    
+  </body>
+</html>
