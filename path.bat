@@ -1,0 +1,1 @@
+PATH = %PATH%;M:\_schule2023\aiit2dhme_1\thonny-4.0.1-windows-portable\;M:\_schule2023\aiit2dhme_1\thonny-4.0.1-windows-portable\Scripts\;

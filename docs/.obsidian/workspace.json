@@ -1,0 +1,156 @@
+{
+  "main": {
+    "id": "21aadd304c665885",
+    "type": "split",
+    "children": [
+      {
+        "id": "536d5a1e213399df",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "9d93ab7469d1c5c1",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "bouncyfant/T01-adassets.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "442480da46c1e836",
+    "type": "split",
+    "children": [
+      {
+        "id": "b709d295301cfba9",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "0194a1ec080eeb21",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "5e8f3cf43b6dd2be",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "d2547fd0f039708d",
+            "type": "leaf",
+            "state": {
+              "type": "starred",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "c8d41a13e1fa6ca8",
+    "type": "split",
+    "children": [
+      {
+        "id": "4b48a2cb7d6e5c67",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "fa445dc9a8a04d65",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "bouncyfant/T01-adassets.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "c4f4eb44f659fa52",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "bouncyfant/T01-adassets.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "b573f4c4704383a8",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "1c196aa6576f9fa9",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "bouncyfant/T01-adassets.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "9d93ab7469d1c5c1",
+  "lastOpenFiles": [
+    "bouncyfant/T00-introduction.md",
+    "bouncyfant/T01-adassets.md",
+    "bouncyfant/img/T01/T01-b-Projekteinstellungen.png",
+    "index.md"
+  ]
+}

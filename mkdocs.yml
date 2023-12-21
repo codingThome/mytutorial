@@ -1,0 +1,76 @@
+# Project information
+site_name: 'learn2proGrAME Tutorial'
+site_description: 'Das learn2proGrAME Tutorial zur Spieleprogrammierung mit C# in Unity'
+site_author: 'learn2proGrAME'
+nav:
+    - Einleitung: index.md
+    - Grundlagen:
+        - Bedienoberflächen: fundamentals/T01-userinterface.md
+        - Erste Schritte: fundamentals/T02-firststeps.md
+        - Fehler und De-Bugging: fundamentals/T03-debugging.md
+        - Variablen: fundamentals/T04-variables.md
+        - Operatoren: fundamentals/T05-operators.md
+        - Spiel - Krapfenklicker: fundamentals/T06-donutclicker.md
+        - Transform Spielobjektkomponente: fundamentals/T07-transform.md
+        - Verzweigungen: fundamentals/T08-conditionals.md
+        - Spiel - Ellis großes Abenteuer: fundamentals/T09-adventure.md
+        - Grafiken gestalten in GIMP: fundamentals/T10-drawingingimp.md
+        - Funktionen: fundamentals/T11-functions.md
+        - Zugriffskontrolle: fundamentals/T12-accessmodifiers.md
+        - Schleifen: fundamentals/T13-loops.md
+        - Die Spiel-Schleife: fundamentals/T14-gameloop.md
+        - Objekt-orientiertes Programmieren - Grundlagen: fundamentals/T15-classes.md
+    - Spiel - BouncyFant:
+      - Einführung: bouncyfant/T00-introduction.md
+      - Teil 1 - Neues Projekt und Assets: bouncyfant/T01-adassets.md
+      - Teil 2 - Animationen und States: bouncyfant/T02-animstat.md
+      - Teil 3 - Bewegung: bouncyfant/T03-movement.md
+      - Teil 4 - Levels, Collider: bouncyfant/T04-levels.md
+      - Teil 5 - Zweite Spielfigur: bouncyfant/T05-secondchar.md
+      - Teil 6 - Jump Around: bouncyfant/T06-jump.md
+      - Teil 7 - Physikwelt: bouncyfant/T07-physics.md
+      - Teil 8 - Gewinnbedingung: bouncyfant/T08-win.md
+      - Teil 9 - Finetuning: bouncyfant/T09-finetuning.md
+      - Teil 10 - Das Spiel Veröffentlichen: bouncyfant/T10-deploy.md
+
+
+# Copyright
+copyright: 'Copyright &copy; 2019 learn2proGrAME forked by ento'
+
+# Configuration
+theme:
+  name: 'material'
+  language: 'de'
+  palette:
+    primary: 'light blue'
+    accent: 'orange'
+  font:
+    text: 'Roboto'
+    code: 'Roboto Mono'
+  highlightjs: true
+  
+# Customization
+extra:
+  manifest: 'manifest.webmanifest'
+  social:
+    - icon: fontawesome/brands/github-alt
+      link: 'https://github.com/sundowndev/PhoneInfoga'
+
+
+
+
+# Extensions
+markdown_extensions:
+  - admonition
+  - attr_list
+  - codehilite:
+      guess_lang: true
+  - toc:
+      permalink: true
+  - footnotes
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
