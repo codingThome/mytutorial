@@ -1,0 +1,1289 @@
+
+<!doctype html>
+<html lang="de" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Das learn2proGrAME Tutorial zur Spieleprogrammierung mit C# in Unity">
+      
+      
+        <meta name="author" content="learn2proGrAME">
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.2">
+    
+    
+      
+        <title>Space-Asteroids - learn2proGrAME Tutorial</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.50c56a3b.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#space-asteroids" class="md-skip">
+          Zum Inhalt
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Kopfzeile">
+    <a href="../.." title="learn2proGrAME Tutorial" class="md-header__button md-logo" aria-label="learn2proGrAME Tutorial" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            learn2proGrAME Tutorial
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Space-Asteroids
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Suche" placeholder="Suche" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Suche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Zurücksetzen" aria-label="Zurücksetzen" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Suche wird initialisiert
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="learn2proGrAME Tutorial" class="md-nav__button md-logo" aria-label="learn2proGrAME Tutorial" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    learn2proGrAME Tutorial
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Einleitung
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Grundlagen
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Grundlagen
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fundamentals/T01-userinterface/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bedienoberflächen
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fundamentals/T02-firststeps/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Erste Schritte
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fundamentals/T03-debugging/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fehler und De-Bugging
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fundamentals/T04-variables/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Variablen
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fundamentals/T05-operators/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Operatoren
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fundamentals/T06-donutclicker/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Spiel - Krapfenklicker
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fundamentals/T07-transform/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transform Spielobjektkomponente
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fundamentals/T08-conditionals/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Verzweigungen
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fundamentals/T09-adventure/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Spiel - Ellis großes Abenteuer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fundamentals/T10-drawingingimp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Grafiken gestalten in GIMP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fundamentals/T11-functions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Funktionen
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fundamentals/T12-accessmodifiers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Zugriffskontrolle
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fundamentals/T13-loops/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Schleifen
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fundamentals/T14-gameloop/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Die Spiel-Schleife
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fundamentals/T15-classes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Objekt-orientiertes Programmieren - Grundlagen
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Spiel - BouncyFant
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Spiel - BouncyFant
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bouncyfant/T00-introduction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Einführung
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bouncyfant/T01-adassets/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Teil 1 - Neues Projekt und Assets
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bouncyfant/T02-animstat/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Teil 2 - Animationen und States
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bouncyfant/T03-movement/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Teil 3 - Bewegung
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bouncyfant/T04-levels/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Teil 4 - Levels, Collider
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bouncyfant/T05-secondchar/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Teil 5 - Zweite Spielfigur
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bouncyfant/T06-jump/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Teil 6 - Jump Around
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bouncyfant/T07-physics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Teil 7 - Physikwelt
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bouncyfant/T08-win/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Teil 8 - Gewinnbedingung
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bouncyfant/T09-finetuning/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Teil 9 - Finetuning
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bouncyfant/T10-deploy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Teil 10 - Das Spiel Veröffentlichen
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#projekt-downloaden" class="md-nav__link">
+    <span class="md-ellipsis">
+      Projekt downloaden
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#teste-das-spiel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Teste das Spiel
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bewegung-der-asteroiden" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bewegung der Asteroiden
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Bewegung der Asteroiden">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#die-benotigten-variablen-deklarieren" class="md-nav__link">
+    <span class="md-ellipsis">
+      Die benötigten Variablen deklarieren
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bewegung-im-spiel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bewegung im Spiel
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rotation-der-asteroiden" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rotation der Asteroiden
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kollision" class="md-nav__link">
+    <span class="md-ellipsis">
+      Kollision
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Kollision">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#was-kollidiert" class="md-nav__link">
+    <span class="md-ellipsis">
+      Was kollidiert?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gescho-und-asteroid-loschen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Geschoß und Asteroid löschen
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#punktestand-erhohen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Punktestand erhöhen
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sound-abspielen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sound abspielen
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vollstandiger-sourcecode" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vollständiger SourceCode
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="space-asteroids">Space-Asteroids<a class="headerlink" href="#space-asteroids" title="Permanent link">&para;</a></h1>
+<div class="admonition abstract">
+<p class="admonition-title">Lernziele</p>
+<p>In diesem Kapitel wirst du mithilfe des Gelernten aus den vorigen Kapiteln die letzten Teile des Spiels Space-Asteroids selber programmieren.</p>
+</div>
+<p>In Space-Asteroids fliegst du mit einem Raumschiff durch ein Asteroidenfeld. Du musst die Asteroiden abschießen oder ihnen ausweichen. Wenn du von einem getroffen wirst, explodiert das Raumschiff.</p>
+<hr />
+<div class="admonition success">
+<p class="admonition-title">Arbeitsauftrag</p>
+<p>Vervollständige das Unity-Projekt. Lediglich die Programmierung der Asteroiden fehlt noch.</p>
+</div>
+<h2 id="projekt-downloaden">Projekt downloaden<a class="headerlink" href="#projekt-downloaden" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>Gehe auf <a href="https://github.com/learn2proGrAME/proGrAME-Beispiele-und-Quellcodes/blob/master/SpaceAsteroids/SpaceAsteroids1.zip">https://github.com/learn2proGrAME/SpaceShooter</a></p>
+</li>
+<li>
+<p>Klicke zuerst auf <strong>"Clone or Download"</strong> und dann auf <strong>"Download ZIP"</strong></p>
+<p><img alt="download" src="../img/githubDownload.png" /></p>
+</li>
+<li>
+<p>Nach dem Download entzippe das heruntergeladene Verzeichnis, öffne <strong>Unity</strong> und klicke auf <strong>"Open"</strong></p>
+<p><img alt="open project" src="../img/openUnity.png" /></p>
+</li>
+<li>
+<p>Gehe in das entpackte Verzeichnis und öffne das Projekt.</p>
+<p><img alt="open project2" src="../img/openUnity2.png" /></p>
+</li>
+</ol>
+<h2 id="teste-das-spiel">Teste das Spiel<a class="headerlink" href="#teste-das-spiel" title="Permanent link">&para;</a></h2>
+<p>Klicke auf den Play-Button in Unity und teste das Spiel</p>
+<p>Du kannst mit den Pfeiltasten herumfliegen und mit der Leertaste schießen.<br />
+Ansonsten ist das Spiel aber noch recht langweilig.</p>
+<p>Wenn du während das Spiel läuft in die Scene-View schaust, siehst du, dass am oberen Spielfeldrand schon Asteroiden erzeugt werden. Allerdings tun diese noch nichts.</p>
+<hr />
+<h2 id="bewegung-der-asteroiden">Bewegung der Asteroiden<a class="headerlink" href="#bewegung-der-asteroiden" title="Permanent link">&para;</a></h2>
+<h3 id="die-benotigten-variablen-deklarieren">Die benötigten Variablen deklarieren<a class="headerlink" href="#die-benotigten-variablen-deklarieren" title="Permanent link">&para;</a></h3>
+<p>Als erstes kümmern wir uns darum, dass die Asteroiden in Bewegung gesetzt werden. Sie sollen senkrecht vom oberen Rand des Spielfelds zum unteren Rand fliegen.</p>
+<p>Öffne unter <em>Assets/Scripts</em> das Script <strong>Asteroid</strong>  </p>
+<p>Da wir die eingebaute Physic-Engine von Unity verwenden, benötigen wir für die Bewegung einen <strong>Rigidbody</strong>.</p>
+<p>Erstelle als erstes eine <em>private</em> Variable vom Typ <em>Rigidbody</em> in der dieser gespeichert wird.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="n">Rigidbody</span><span class="w"> </span><span class="n">rb</span><span class="p">;</span>
+</code></pre></div>
+<p>Lege außerdem noch eine <em>public</em> Variable für die Geschwindigkeit an mit der der Asteroid fliegen soll.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">geschwindigkeit</span><span class="p">;</span>
+</code></pre></div>
+<h3 id="bewegung-im-spiel">Bewegung im Spiel<a class="headerlink" href="#bewegung-im-spiel" title="Permanent link">&para;</a></h3>
+<p>Bevor du den Asteroiden in Bewegung setzen kannst, musst du die Variable des Rigidbodys initialisieren.  </p>
+<p>Mache dies in der <code>start()</code> Methode mit dem Befehl <code>GetComponent&lt;Rigidbody&gt;()</code></p>
+<p>Dein Code sollte so aussehen:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="w">     </span><span class="c1">//Start() wird von Unity aufgerufen, wenn das Object erzeugt wird.</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="k">void</span><span class="w"> </span><span class="nf">Start</span><span class="p">(){</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">        </span><span class="c1">//Setze die Referenz auf den Rigidbody</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">        </span><span class="n">rb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GetComponent</span><span class="o">&lt;</span><span class="n">Rigidbody</span><span class="o">&gt;</span><span class="w"> </span><span class="p">();</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="p">}</span>
+</code></pre></div>
+<p>Nun müssen wir dem Rigidbody nur noch eine Geschwindigkeit geben.<br />
+Verwende hierfür den Befehl <code>rb.velocity = new Vector3 (0, 0, -geschwindigkeit);</code></p>
+<p>Füge diesen Befehl ebenfalls in der <code>Start()</code> Methode nach dem Initialisieren von <code>rb</code> ein.</p>
+<div class="admonition tip">
+<p class="admonition-title">Hinweis</p>
+<p>Vielleicht ist dir aufgefallen, dass wir die Variable geschwindigkeit noch gar nicht initialisiert haben. Das ist kein Problem. Da diese <em>public</em> ist, kann man ihren Wert im Inspector von Unity festlegen.</p>
+</div>
+<p>Speichere das Script und gehe wieder in Unity.</p>
+<p>Im Ordner <em>Assets/Vorlagen</em> findest du die Vorlage für die Asteroiden. Wenn du sie auswählst siehst du, dass das Script <em>Asteroid.cs</em> bereits angehängt ist. Wenn du nun noch die geschwindigkeit auf einen Wert größer als 0 setzt, bist du mit diesem Teil fertig.</p>
+<p><img alt="geschwindigkeitSetzen" src="../img/asteroid1.png" /></p>
+<p>Vergiss nicht zu testen und probiere ein paar unterschiedliche Werte für die Geschwindigkeit aus!</p>
+<hr />
+<h2 id="rotation-der-asteroiden">Rotation der Asteroiden<a class="headerlink" href="#rotation-der-asteroiden" title="Permanent link">&para;</a></h2>
+<p>Die Asteroiden bewegen sich nun zwar, allerdings sehen sie noch ein bisschen leblos aus. Lassen wir sie rotieren!</p>
+<p>Sie sollen mit einer bestimmten Geschwindigkeit um eine zufällige Achse rotieren.</p>
+<p>Erstelle eine <em>public</em> Variable vom Typ <em>float</em> für die Rotationsgeschwindigkeit und gib ihr einen sinnvollen Namen.</p>
+<p>Dann füge am Ende der Methode <code>start()</code> folgenden Befehl ein:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="w">    </span><span class="n">rb</span><span class="p">.</span><span class="n">angularVelocity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Random</span><span class="p">.</span><span class="n">insideUnitSphere</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">rotationsgeschwindigkeit</span><span class="p">;</span>
+</code></pre></div>
+<p>Wobei <code>rotationsGeschwindigkeit</code> der von dir gewählte Variablenname sein muss.</p>
+<p>Speichere das Skript, gehe in Unity und setze die Rotationsgeschwindigkeit im Inspector so wie in Schritt 3.2.</p>
+<p>Teste!</p>
+<hr />
+<h2 id="kollision">Kollision<a class="headerlink" href="#kollision" title="Permanent link">&para;</a></h2>
+<p>Die Asteroiden fliegen herum, drehen sich und wenn sie das Raumschiff berühren wird dieses zerstört. Allerdings kann man sie noch nicht abschießen.</p>
+<p>In diesem Teil wirst du folgende Dinge programmieren:</p>
+<p>Wenn ein Asteroid mit einem Lasergeschoß kollidiert ...</p>
+<ol>
+<li>... werden Lasergeschoß  und der Asteroid gelöscht</li>
+<li>... wird der Punktestand erhöht</li>
+<li>... wird ein Sound abgespielt</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Hinweis</p>
+<p>Der meiste Code in diesem Teil wird in der Methode <code>OnTriggerEnter(Collider other)</code> eingefügt. Diese Methode wird (etwas vereinfacht gesagt) von Unity immer dann aufgerufen, wenn eine Kollision stattfindet.
+Der Parameter <code>other</code> ist hierbei der Collider des GameObjects mit dem kollidiert wird.</p>
+</div>
+<h3 id="was-kollidiert">Was kollidiert?<a class="headerlink" href="#was-kollidiert" title="Permanent link">&para;</a></h3>
+<p>Bevor wir implementieren, was geschehen soll, müssen wir überprüfen womit der Asteroid überhaupt kollidiert.</p>
+<p>Füge ein <em>if-Statement</em> in der Methode <code>OnTriggerEnter()</code> ein, das überprüft ob die Variable <code>other.tag</code> gleich "Geschoß" ist. Um zu überprüfen ob <code>other</code> ein Lasergeschoß ist.</p>
+<div class="admonition tip">
+<p class="admonition-title">Hinweis</p>
+<p>Man kann in Unity jedem Gameobject und jeder Vorlage einen <strong>tag</strong> zuweisen. Dieser <strong>tag</strong> ist als <em>String</em> Variable <code>tag</code> in jedem GameObject verfügbar. In diesem Spiel wurde z.B. den Lasergeschoßen der <strong>tag</strong> "Geschoß" und den Asteroiden der <strong>tag</strong> "Hindernis" gegeben.</p>
+</div>
+<h3 id="gescho-und-asteroid-loschen">Geschoß und Asteroid löschen<a class="headerlink" href="#gescho-und-asteroid-loschen" title="Permanent link">&para;</a></h3>
+<p>Um in Unity ein Gameobject zu löschen verwendet man die Funktion <code>Destroy(GameObject)</code>. Diese löscht das Gameobjekt, das als Parameter angegeben wird am Ende des aktuellen Spielframes.</p>
+<p>Rufe nun zweimal die Funktion <code>Destroy()</code> auf. Gib einmal <code>other.gameObject</code> und einmal <code>gameObject</code> als Parameter an.</p>
+<h3 id="punktestand-erhohen">Punktestand erhöhen<a class="headerlink" href="#punktestand-erhohen" title="Permanent link">&para;</a></h3>
+<p>Der GameController stellt die Methode <code>ErhoehePunktestand(int punkte)</code> zur Verfügung.</p>
+<p>Bevor du diese Funktion aufrufen kannst, benötigst du allerdings eine Variable mit einer Referenz auf den GameController.</p>
+<ol>
+<li>Erstelle eine <em>private</em> Variable vom Typ <em>GameController</em> am Beginn der Klasse und nenne sie "gameController".</li>
+<li>Initialisiere in der Methode <code>Start()</code> die Variable für den GameController mithilfe der Funktion <code>FindeGameController()</code></li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="w">    </span><span class="n">gameController</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FindeGameController</span><span class="p">();</span>
+</code></pre></div>
+<p>Rufe nun in der Methode <code>OnTriggerEnter()</code> im Asteroid-Skript die Funktion <code>ErhoehePunktestand(int punkte)</code> des GameControllers auf und gib als Parameter z.B. <em>10</em> an.</p>
+<div class="admonition tip">
+<p class="admonition-title">Hinweis</p>
+<p>Um eine Funktion in einem anderen Objekt aufzurufen, verwende: <em>variablenname-des-objekts.FunktionsName()</em>
+Also z.B. <code>gameController.ErhoehePunktestand(10);</code></p>
+</div>
+<h3 id="sound-abspielen">Sound abspielen<a class="headerlink" href="#sound-abspielen" title="Permanent link">&para;</a></h3>
+<p>Lege als erstes eine <em>public</em> Variable vom Typ <em>AudioClip</em> am Beginn der Klasse an und speichere das Skript.</p>
+<p>Gehe in Unity auf <em>Assets/Vorlagen</em> und wähle <em>Asteroid</em> aus. Im Inspektor siehst du die Variable für den AudioClip.</p>
+<p>Klicke auf die Zielscheibe rechts daneben und wähle "Explosion1" aus.</p>
+<p><img alt="sound initalisieren" src="../img/linkSound.png" /></p>
+<p>Zum Abspielen des Sounds gibt es im GameController die Methode <code>csharp SpieleSound(AudioClip sound, float lautstaerke)</code></p>
+<p>Rufe diese Methode innerhalb von <code>OnTriggerEnter</code> auf und gib als Parameter die Variable für den Sound und <code>0.2f</code> an.</p>
+<hr />
+<h2 id="vollstandiger-sourcecode">Vollständiger SourceCode<a class="headerlink" href="#vollstandiger-sourcecode" title="Permanent link">&para;</a></h2>
+<p>Dein fertiger Sourcecode sollte in etwa so aussehen:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="nn">System.Collections</span><span class="p">;</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="nn">System.Collections.Generic</span><span class="p">;</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="nn">UnityEngine</span><span class="p">;</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Asteroid</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">MonoBehaviour</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">        </span><span class="c1">//Referenz auf den Rigidbody</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="n">Rigidbody</span><span class="w"> </span><span class="n">rb</span><span class="p">;</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">        </span><span class="c1">//Die Geschwindigkeit mit der die Asteroiden fliegen</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">geschwindigkeit</span><span class="p">;</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">        </span><span class="c1">//Rotationsgeschwindigkeit</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">rotationsGeschwindigkeit</span><span class="p">;</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="w">        </span><span class="c1">//Referenz auf den GameController</span>
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="n">GameController</span><span class="w"> </span><span class="n">gameController</span><span class="p">;</span>
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a>
+<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="w">        </span><span class="c1">//Der Sound der bei der Zerstörung eines Asteroiden abgespielt wird.</span>
+<a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="n">AudioClip</span><span class="w"> </span><span class="n">explosionsSound</span><span class="p">;</span>
+<a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a>
+<a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a>
+<a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a><span class="w">        </span><span class="c1">//Start() wird von Unity aufgerufen, wenn das Object erzeugt wird.</span>
+<a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a><span class="w">        </span><span class="k">void</span><span class="w"> </span><span class="nf">Start</span><span class="p">(){</span>
+<a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a>
+<a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a><span class="w">            </span><span class="c1">//Setze die Referenz auf den Rigidbody</span>
+<a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a><span class="w">            </span><span class="n">rb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GetComponent</span><span class="o">&lt;</span><span class="n">Rigidbody</span><span class="o">&gt;</span><span class="w"> </span><span class="p">();</span>
+<a id="__codelineno-5-28" name="__codelineno-5-28" href="#__codelineno-5-28"></a>
+<a id="__codelineno-5-29" name="__codelineno-5-29" href="#__codelineno-5-29"></a><span class="w">            </span><span class="c1">//Setze die Geschwindigkeit</span>
+<a id="__codelineno-5-30" name="__codelineno-5-30" href="#__codelineno-5-30"></a><span class="w">            </span><span class="n">rb</span><span class="p">.</span><span class="n">velocity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Vector3</span><span class="w"> </span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="n">geschwindigkeit</span><span class="p">);</span>
+<a id="__codelineno-5-31" name="__codelineno-5-31" href="#__codelineno-5-31"></a>
+<a id="__codelineno-5-32" name="__codelineno-5-32" href="#__codelineno-5-32"></a><span class="w">            </span><span class="c1">//Setze die Rotationsgeschwindigkeit</span>
+<a id="__codelineno-5-33" name="__codelineno-5-33" href="#__codelineno-5-33"></a><span class="w">            </span><span class="n">rb</span><span class="p">.</span><span class="n">angularVelocity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Random</span><span class="p">.</span><span class="n">insideUnitSphere</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">rotationsGeschwindigkeit</span><span class="p">;</span>
+<a id="__codelineno-5-34" name="__codelineno-5-34" href="#__codelineno-5-34"></a>
+<a id="__codelineno-5-35" name="__codelineno-5-35" href="#__codelineno-5-35"></a><span class="w">            </span><span class="c1">//Setze GameController-Referenz</span>
+<a id="__codelineno-5-36" name="__codelineno-5-36" href="#__codelineno-5-36"></a><span class="w">            </span><span class="n">gameController</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FindeGameController</span><span class="p">();</span>
+<a id="__codelineno-5-37" name="__codelineno-5-37" href="#__codelineno-5-37"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-5-38" name="__codelineno-5-38" href="#__codelineno-5-38"></a>
+<a id="__codelineno-5-39" name="__codelineno-5-39" href="#__codelineno-5-39"></a><span class="w">        </span><span class="c1">//OnTriggerEnter() wird von Unity aufgerufen, wenn ein anderer Collider mit dem eigenen Collider kollidiert.</span>
+<a id="__codelineno-5-40" name="__codelineno-5-40" href="#__codelineno-5-40"></a><span class="w">        </span><span class="k">void</span><span class="w"> </span><span class="nf">OnTriggerEnter</span><span class="p">(</span><span class="n">Collider</span><span class="w"> </span><span class="n">other</span><span class="p">)</span>
+<a id="__codelineno-5-41" name="__codelineno-5-41" href="#__codelineno-5-41"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-5-42" name="__codelineno-5-42" href="#__codelineno-5-42"></a><span class="w">            </span><span class="c1">//Überprüfe ob das andere Objekt ein Geschoß ist.</span>
+<a id="__codelineno-5-43" name="__codelineno-5-43" href="#__codelineno-5-43"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">other</span><span class="p">.</span><span class="n">tag</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;Geschoß&quot;</span><span class="p">)</span>
+<a id="__codelineno-5-44" name="__codelineno-5-44" href="#__codelineno-5-44"></a><span class="w">            </span><span class="p">{</span>
+<a id="__codelineno-5-45" name="__codelineno-5-45" href="#__codelineno-5-45"></a><span class="w">                </span><span class="c1">//Lösche das Geschoß</span>
+<a id="__codelineno-5-46" name="__codelineno-5-46" href="#__codelineno-5-46"></a><span class="w">                </span><span class="n">Destroy</span><span class="p">(</span><span class="n">other</span><span class="p">.</span><span class="n">gameObject</span><span class="p">);</span>
+<a id="__codelineno-5-47" name="__codelineno-5-47" href="#__codelineno-5-47"></a>
+<a id="__codelineno-5-48" name="__codelineno-5-48" href="#__codelineno-5-48"></a><span class="w">                </span><span class="c1">//Lösche den Asteroiden selbst</span>
+<a id="__codelineno-5-49" name="__codelineno-5-49" href="#__codelineno-5-49"></a><span class="w">                </span><span class="n">Destroy</span><span class="p">(</span><span class="n">gameObject</span><span class="p">);</span>
+<a id="__codelineno-5-50" name="__codelineno-5-50" href="#__codelineno-5-50"></a>
+<a id="__codelineno-5-51" name="__codelineno-5-51" href="#__codelineno-5-51"></a><span class="w">                </span><span class="c1">//erhöhe den Punktestand</span>
+<a id="__codelineno-5-52" name="__codelineno-5-52" href="#__codelineno-5-52"></a><span class="w">                </span><span class="n">gameController</span><span class="p">.</span><span class="n">ErhoehePunktestand</span><span class="p">(</span><span class="m">10</span><span class="p">);</span>
+<a id="__codelineno-5-53" name="__codelineno-5-53" href="#__codelineno-5-53"></a>
+<a id="__codelineno-5-54" name="__codelineno-5-54" href="#__codelineno-5-54"></a><span class="w">                </span><span class="c1">//Spiele den explosionsSound ab</span>
+<a id="__codelineno-5-55" name="__codelineno-5-55" href="#__codelineno-5-55"></a><span class="w">                </span><span class="n">gameController</span><span class="p">.</span><span class="n">SpieleSound</span><span class="p">(</span><span class="n">explosionsSound</span><span class="p">,</span><span class="w"> </span><span class="m">0.2f</span><span class="p">);</span>
+<a id="__codelineno-5-56" name="__codelineno-5-56" href="#__codelineno-5-56"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-5-57" name="__codelineno-5-57" href="#__codelineno-5-57"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-5-58" name="__codelineno-5-58" href="#__codelineno-5-58"></a>
+<a id="__codelineno-5-59" name="__codelineno-5-59" href="#__codelineno-5-59"></a><span class="w">        </span><span class="c1">// Diese Methode sucht nach dem GameController</span>
+<a id="__codelineno-5-60" name="__codelineno-5-60" href="#__codelineno-5-60"></a><span class="w">        </span><span class="c1">// Wenn einer gefunden wird, wird eine Referenz darauf zurückgegeben.</span>
+<a id="__codelineno-5-61" name="__codelineno-5-61" href="#__codelineno-5-61"></a><span class="w">        </span><span class="c1">// Wenn kein GameController vorhanden ist, wird das Spiel mit einer Fehlermeldung beendet.</span>
+<a id="__codelineno-5-62" name="__codelineno-5-62" href="#__codelineno-5-62"></a><span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="n">GameController</span><span class="w"> </span><span class="nf">FindeGameController</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-63" name="__codelineno-5-63" href="#__codelineno-5-63"></a>
+<a id="__codelineno-5-64" name="__codelineno-5-64" href="#__codelineno-5-64"></a><span class="w">            </span><span class="n">GameObject</span><span class="w"> </span><span class="n">gameControllerObject</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GameObject</span><span class="p">.</span><span class="n">FindWithTag</span><span class="p">(</span><span class="s">&quot;GameController&quot;</span><span class="p">);</span>
+<a id="__codelineno-5-65" name="__codelineno-5-65" href="#__codelineno-5-65"></a>
+<a id="__codelineno-5-66" name="__codelineno-5-66" href="#__codelineno-5-66"></a><span class="w">            </span><span class="c1">//Befindet sich kein GameController im Spiel ist gameControllerObject == null</span>
+<a id="__codelineno-5-67" name="__codelineno-5-67" href="#__codelineno-5-67"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">gameControllerObject</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">null</span><span class="p">)</span>
+<a id="__codelineno-5-68" name="__codelineno-5-68" href="#__codelineno-5-68"></a><span class="w">            </span><span class="p">{</span>
+<a id="__codelineno-5-69" name="__codelineno-5-69" href="#__codelineno-5-69"></a><span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="n">gameControllerObject</span><span class="p">.</span><span class="n">GetComponent</span><span class="o">&lt;</span><span class="n">GameController</span><span class="o">&gt;</span><span class="p">();</span>
+<a id="__codelineno-5-70" name="__codelineno-5-70" href="#__codelineno-5-70"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-5-71" name="__codelineno-5-71" href="#__codelineno-5-71"></a><span class="w">            </span><span class="k">else</span>
+<a id="__codelineno-5-72" name="__codelineno-5-72" href="#__codelineno-5-72"></a><span class="w">            </span><span class="p">{</span>
+<a id="__codelineno-5-73" name="__codelineno-5-73" href="#__codelineno-5-73"></a><span class="w">                </span><span class="n">Debug</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="s">&quot;Cannot find GameController Script&quot;</span><span class="p">);</span>
+<a id="__codelineno-5-74" name="__codelineno-5-74" href="#__codelineno-5-74"></a><span class="w">                </span><span class="n">Application</span><span class="p">.</span><span class="n">Quit</span><span class="p">();</span>
+<a id="__codelineno-5-75" name="__codelineno-5-75" href="#__codelineno-5-75"></a><span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="k">null</span><span class="p">;</span>
+<a id="__codelineno-5-76" name="__codelineno-5-76" href="#__codelineno-5-76"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-5-77" name="__codelineno-5-77" href="#__codelineno-5-77"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-5-78" name="__codelineno-5-78" href="#__codelineno-5-78"></a><span class="w">    </span><span class="p">}</span>
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2019 learn2proGrAME forked by ento
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/sundowndev/PhoneInfoga" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "In Zwischenablage kopiert", "clipboard.copy": "In Zwischenablage kopieren", "search.result.more.one": "1 weiteres Suchergebnis auf dieser Seite", "search.result.more.other": "# weitere Suchergebnisse auf dieser Seite", "search.result.none": "Keine Suchergebnisse", "search.result.one": "1 Suchergebnis", "search.result.other": "# Suchergebnisse", "search.result.placeholder": "Suchbegriff eingeben", "search.result.term.missing": "Es fehlt", "select.version": "Version ausw\u00e4hlen"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7c377c4.min.js"></script>
+      
+    
+  </body>
+</html>
